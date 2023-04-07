@@ -1469,6 +1469,7 @@ public abstract class NanoHTTPD {
                 this.data = data;
                 this.contentLength = totalBytes;
             }
+            System.out.println(this.data);
             this.chunkedTransfer = this.contentLength < 0;
             keepAlive = true;
         }
