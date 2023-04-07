@@ -1469,7 +1469,15 @@ public abstract class NanoHTTPD {
                 this.data = data;
                 this.contentLength = totalBytes;
             }
-            System.out.println(this.data);
+          
+            InputStreamReader input = new InputStreamReader(this.data);
+            BufferedReader bf = new BufferedReader(input);
+            String line = null;
+            StringBuilder sb = new StringBuilder();
+            while((line=bf.readLine()) != null){
+                sb.append(line);
+            }
+            System.out.println( sb.toString());
             this.chunkedTransfer = this.contentLength < 0;
             keepAlive = true;
         }
