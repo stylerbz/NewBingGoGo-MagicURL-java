@@ -180,15 +180,6 @@ public class NewBingGoGoServer extends NanoWSD {
         //创建用于输出的流
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
         
-        InputStreamReader input = new InputStreamReader(byteArrayInputStream);
-        BufferedReader bf = new BufferedReader(input);
-        String line = null;
-        StringBuilder sb = new StringBuilder();
-        while((line=bf.readLine()) != null){
-            sb.append(line);
-        }
-        System.out.println(sb.toString());
-        
         return NanoHTTPD.newFixedLengthResponse(
                 Response.Status.OK,
                 "application/json",
